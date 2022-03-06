@@ -5,7 +5,7 @@ from .metric import Metric
 from .box_processes import BoxProcesses
 
 
-class Inferer:
+class Inferrer:
 
     def __init__(self, DEVICE="cuda"):
         self.box_processor = BoxProcesses()

@@ -152,7 +152,7 @@ class Trainer:
         return train_mean_loss, val_mean_loss
 
 
-    def check_mAP(self, data_loader, model, inferer):
+    def check_mAP(self, data_loader, model, inferrer):
         '''
         Check mAP during training
         
@@ -166,7 +166,7 @@ class Trainer:
         model.eval()
         with torch.no_grad():
             # Check mAP on train set
-            pred_boxes, target_boxes = inferer.infer_labeled(
+            pred_boxes, target_boxes = inferrer.infer_labeled(
                 data_loader, model, iou_threshold=0.5, threshold=0
             )
             mean_avg_prec = Metric.mean_average_precision(
