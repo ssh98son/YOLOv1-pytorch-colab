@@ -24,11 +24,15 @@ PascalVOC **2007, 2012 trainval** sets were used for training, and VOC **2007 te
 
 To utilize pre-trained feature extractor network, I tried two different backbone networks `VGG-19` and `Resnet-18` provided by `torchvision`. I was able to reach best mAP of `58.32` which is a bit lower than proposed in the paper. Possibly the difference in backbone network had impacted the performance.
 
+<img src="docs/train result.png" width=420>
+
 | Backbone |Train Set|Test Set| mAP |
 |---|---|---|---|
 | Original (paper) | 2007+2012 | 2007 | 63.4 |
 | Resnet-18 (mine) | 2007+2012 | 2007 | **58.32** |
-| VGG-19 (mine) | 2007+2012 | 2007 | 53.97
+| VGG-19 (mine) | 2007+2012 | 2007 | 53.97 | 
+
+
 
 ## Training Detail
 
