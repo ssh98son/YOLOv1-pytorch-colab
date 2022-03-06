@@ -1,23 +1,15 @@
 # YOLOv1-pytorch-for-colab
 
-> This is simple and effective implementation of YOLOv1 using pytorch, trainable in "Google Colab" environment.
+This is the pytorch implementation of YOLOv1 for study purpose. To train it by yourself, simply clone this repo and upload it on your Google Drive.
 
-## Introduction
-This is the pytorch implementation of YOLOv1 for study purpose.
-
-Though I've used Aladdin Persson's [YOLOv1 from scratch](https://www.youtube.com/watch?v=n9_XyCGr-MI) video for baseline of this project, <u>I rewrote most of the project by myself</u> including **loss function** and **pretrained model** to raise up performance comparable to the [original paper](https://arxiv.org/abs/1506.02640). Also to refactor it trainable it in Google Colab environment, for those who do not have their own GPU like me. 😂
-
-To train it by yourself, simply clone this repo and upload it on your Google Drive.
+Though I've used Aladdin Persson's [YOLOv1 from scratch](https://www.youtube.com/watch?v=n9_XyCGr-MI) video for baseline of this project, <u>I re-wrote most of the project by myself</u> including **loss function** and **pretrained model** to raise up performance comparable to the [original paper](https://arxiv.org/abs/1506.02640). **The codes are written for Google Colab environment**, for those who do not have their own GPU like me. 😂
 
 ## Dependencies
 - PyTorch
-- numpy
-- matplotlib
-- pandas
-- Albumentations
+- numpy, matplotlib, pandas
 - torchsummary
 - tqdm
-- OpenCV (will be installed with Albumentations.) 
+- Albumentations, OpenCV (will be installed with Albumentations.) 
 - Jupyter Notebook (for local only)
 
 Do not install OpenCV manually as it may cause version conflict with Albumentations.
@@ -48,7 +40,7 @@ Below describes how the square root in the loss function is derived. The raw pre
 
 <img src="docs/loss_fn.png" width="500px">
 
-I suppose this helps the model to predict smaller boxes more precisely as slight change in box size is critical rather than larger boxes. How did I figured it out...? It can be found from [darknet repository](https://github.com/pjreddie/darknet/blob/master/src/detection_layer.c).
+I suppose this helps the model to predict smaller boxes more precisely. Slight change in box size for small box is more critical than it is for large boxes. How did I figured it out...? It can be found from [darknet repository](https://github.com/pjreddie/darknet/blob/master/src/detection_layer.c).
 
 ```C
     if (l.sqrt) {
